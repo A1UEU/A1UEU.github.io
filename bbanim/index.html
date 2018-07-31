@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Cousine|Open+Sans|Roboto" rel="stylesheet">
+</head>
+
+<style>
+
+	.container {
+		/*background: red;*/
+		width: 61.7%;
+		margin: 0 auto;
+	}
+
+	.logo {
+		/*background-color: powderblue;*/
+		font-family: 'Cousine', monospace;
+	}
+
+	.container {
+		font-family: 'Roboto', 'Open Sans', sans-serif;
+	}
+	.text {
+		/*font-size: 20px;*/
+		line-height: 1.5em;
+		width: auto;
+		margin: 0 auto;
+	}
+
+	.footer {
+		line-height: 1.5em;
+		font-size: 0.7em;
+	}
+
+	.blinlingCursor {
+		float:left;
+		background: black;
+	    /*width:200px;*/
+	    /*height: 200px;*/
+	    /*-webkit-animation: fadeinout 1s linear forwards;*/
+	    animation: onoff 1s infinite linear forwards;
+	}
+
+	.fauxCommand {
+		float:left;
+	}
+
+	.clearInlineDivs { clear:both; }
+
+	/*@-webkit-keyframes fadeinout {
+	  0%,100% { opacity: 0; }
+	  50% { opacity: 1; }
+	}*/
+
+	@keyframes fadeinout {
+	  0%,100% { opacity: 0; }
+	  50% { opacity: 1; }
+	  20% { opacity: 1; }
+	}
+	@keyframes onoff {
+	  0%,100% { opacity: 0; }
+	  25%, 75% { opacity: 0; }
+	  26%, 74% { opacity: 1; }
+	}
+</style>
+
+<body>
+<div class=container>
+	<div class=logo>
+		# ʕ•ᴥ•ʔ
+		<div class=clearInlineDivs></div>
+		<div class=fauxCommand># Bärchenbyte </div>
+		<div class=blinlingCursor>B</div>
+		<div class=clearInlineDivs></div>
+		<!-- ----------------------------------------- -->
+	</div>
+	<br>
+	<div class=text>
+		<h1>Mission</h1>
+		<p>Für uns ist der Status Quo nicht das Maß.<br>
+		Wir fangen an, wo andere aufgeben.<br>
+		Bärchenbyte ist Offenheit. Für die Zukunft.</p>
+	</div>
+
+	<div class=footer>
+		<p>nachricht@baerchenbyte.com<br>
+		<!-- HRB 00069<br> -->
+		<!-- <a href="https://accounts.google.com/signin">login</a><br> -->
+
+		Copyright Bärchenbyte GmbH 2018, all rights reserved.
+		</p>
+	</div>
+</div>
+
+
+</body>
+</html>
