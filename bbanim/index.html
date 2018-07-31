@@ -8,8 +8,9 @@
 <style>
 
 	.container {
+		font-family: 'Roboto', 'Open Sans', sans-serif;
 		/*background: red;*/
-		width: 61.7%;
+		display: table;
 		margin: 0 auto;
 	}
 
@@ -18,9 +19,6 @@
 		font-family: 'Cousine', monospace;
 	}
 
-	.container {
-		font-family: 'Roboto', 'Open Sans', sans-serif;
-	}
 	.text {
 		/*font-size: 20px;*/
 		line-height: 1.5em;
@@ -38,7 +36,7 @@
 		background: black;
 	    /*width:200px;*/
 	    /*height: 200px;*/
-	    /*-webkit-animation: fadeinout 1s linear forwards;*/
+	    -webkit-animation: fadeinout 1s linear forwards;
 	    animation: onoff 1s infinite linear forwards;
 	}
 
@@ -48,10 +46,11 @@
 
 	.clearInlineDivs { clear:both; }
 
-	/*@-webkit-keyframes fadeinout {
+	@-webkit-keyframes onoff {
 	  0%,100% { opacity: 0; }
-	  50% { opacity: 1; }
-	}*/
+	  25%, 75% { opacity: 0; }
+	  26%, 74% { opacity: 1; }
+	}
 
 	@keyframes fadeinout {
 	  0%,100% { opacity: 0; }
@@ -63,15 +62,17 @@
 	  25%, 75% { opacity: 0; }
 	  26%, 74% { opacity: 1; }
 	}
+
 </style>
+
 
 <body>
 <div class=container>
 	<div class=logo>
-		# ʕ•ᴥ•ʔ
+		<div># ʕ•ᴥ•ʔ</div>
 		<div class=clearInlineDivs></div>
 		<div class=fauxCommand># Bärchenbyte </div>
-		<div class=blinlingCursor>B</div>
+		<div class=blinlingCursor>#</div>
 		<div class=clearInlineDivs></div>
 		<!-- ----------------------------------------- -->
 	</div>
