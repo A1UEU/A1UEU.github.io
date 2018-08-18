@@ -47,8 +47,8 @@ function draw()
 
   for (var i = 0; i < tree.length; i++)
   {
-    tree[i].show();
     tree[i].growTogether(progressWeight(progress));
+    tree[i].show();
   }
 
   if (progress > 1) noLoop();
