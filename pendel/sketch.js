@@ -22,6 +22,8 @@ function setup()
 var updatedAt = 0.0;
 var oldSecond = 0;
 var curTime;
+var sizeSet = false;
+var scaleFactor;
 
 function clockUpdateReal()
 {
@@ -53,7 +55,12 @@ function draw()
   var curSize = textSize();
   var curWidth = textWidth(textString);
   const sollWidth = pendulumLength*2;
-  textSize(curSize/curWidth*sollWidth);
+  if (!sizeSet)
+  {
+    scaleFactor = curSize/curWidth*sollWidth;
+    sizeSet = true;
+  }
+  textSize(scaleFactor);
   text(textString, 10, 30);
 
   seconds = curTime[2];// + curTime[1]*60 + curTime[0] * 60 * 60;
