@@ -65,7 +65,7 @@ function draw()
       console.log("Decaying...");
     }
 
-    // noLoop();
+    noLoop();
   }
 
 }
