@@ -3,49 +3,47 @@
   <head>
     <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
     <style> body {padding: 0; margin: 0;} </style>
-    <script src="../p5.js"></script>
-    <script src="../addons/p5.dom.js"></script>
-    <script src="../addons/p5.sound.js"></script>
-    <script src="fuerFabian/sketch.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet">
+    <script src="./p5.js"></script>
+    <script src="./addons/p5.dom.js"></script>
+    <script src="./addons/p5.sound.js"></script>
+    <script src="./fuerFabian/fuerFabian.js"></script>
     <style>
-      logo text {
-        font-family: 'Sunflower', sans-serif;
-        font-size: 48px;
-      }
       body {
           background: black;
       }
       .container {
           position: absolute;
           width: 600px;
-          /*height: auto;*/
           height: 970px;
           z-index: 15;
           top: 50%;
           left: 50%;
           margin: -485px 0 0 -300px;
-          background: Wheat;
+          background: AntiqueWhite;
           border-radius: 5px 5px 5px 5px;
       }
       .one {
           width: 600px;
           height: 600px;
-          /*background: rgb(218,165,32);*/
           border-radius: 5px 5px 0 0;
       }
       .two {
           margin-left: 0px;
           height: 370px;
           border-radius: 0 0 5px 5px;
-          /*background: rgb(218,165,32);*/
+          background: AntiqueWhite;
+          background-image: url(fuerFabian/glueckwuensche.jpeg);
+          background-blend-mode: multiply;
+          background-size: contain; 
+          background-repeat:   no-repeat;
+          background-position: left center;
       }
     </style>
   </head>
   <body>
     <div class='container'>
     <div id='logo' class='one'></div>
-    <div class='two'><!-- Glückwünsche --></div>
+    <div class='two'><!-- Glückwünsche im BG --></div>
     </div>
   </body>
 </html>

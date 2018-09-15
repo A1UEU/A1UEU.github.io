@@ -7,13 +7,11 @@ var trunkLength;
 var progress;
 var upWard;
 
-var tree = []; //array of branches. 
-
 
 function setup() 
 {
-  canvasHeight = 500;
-  canvasWidth = 500;
+  canvasHeight = 600;
+  canvasWidth = 600;
   var canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent('logo');
   canvasRadius = min([canvasHeight, canvasWidth])/2;
@@ -32,7 +30,6 @@ function setup()
     {
       if(!tree[i].hasBranches)
       {
-        // console.log("Spawning generation ", generation, "number ", i);
         tree = tree.concat(tree[i].spawnNewBranches(maxAngle, generation));
       }
     }
@@ -42,17 +39,31 @@ function setup()
 
 function draw()
 {
-  background(255);
+  clear();
   translate(canvasWidth/2, canvasHeight); // to the origin!
 
-  for (var i = 0; i < tree.length; i++)
+  if (progress < 1)
   {
-    tree[i].show();
-    tree[i].growTogether(progressWeight(progress));
+    for (var i = 0; i < tree.length; i++)
+    {
+      tree[i].growGenByGen(progressWeight(progress));
+      tree[i].show();
+      console.log("Growing...");
+    }
+    progress += 0.005*0.3;//0.0025;
   }
+  if (progress > 1)
+  {
+    console.log("Calling age...");
+    for (var i = 0; i < tree.length; i++)
+    {
+      tree[i].decay(0.005);
+      tree[i].show();
+      console.log("Decaying...");
+    }
 
-  if (progress > 1) noLoop();
-  progress += 0.0025;
+    noLoop();
+  }
 }
 
 function Branch(originBranch, length, angle, grownBy, generation)
@@ -62,6 +73,7 @@ function Branch(originBranch, length, angle, grownBy, generation)
   this.angle = angle;
 
   this.grownBy = grownBy;
+  this.decay = 0;
   this.hasBranches = false;
   this.generation = generation;
 
@@ -69,9 +81,12 @@ function Branch(originBranch, length, angle, grownBy, generation)
 
   this.show = function()
   {
-    strokeWeight(this.grownBy*canvasRadius/50*(1-this.generation/maxGenerations)+1);
-    stroke(0, 0, 255);
-    stroke(218,165,32);
+    strokeWeight(this.grownBy*canvasRadius/30*(1-this.generation/maxGenerations)+1);
+    // stroke(0, 0, 255); // blue
+    // stroke(0, 0, 0);
+    // stroke(218,165,32); // gold
+    stroke(255,20,20); // glowing pinkg
+
     this.updateEnd();
     line(this.originBranch.end.x, this.originBranch.end.y, this.end.x, this.end.y);
   }
@@ -81,10 +96,15 @@ function Branch(originBranch, length, angle, grownBy, generation)
     this.end = p5.Vector.add(this.originBranch.end, p5.Vector.fromAngle(angleCorr(this.angle*this.grownBy), this.length*this.grownBy));
   }
 
-  this.growTogether = function(progress)
+  this.growGenByGen = function(progress)
   {
-    console.log(this.generation);
     this.grownBy = progress > this.generation/maxGenerations ? (progress - this.generation/maxGenerations)/(1 - this.generation/maxGenerations) : 0; 
+  }
+
+  this.decay = function(byAmount)
+  {
+    if (this.decay >= 0) this.decay += byAmount;
+    else this.decay = 0;
   }
 
   this.spawnNewBranches = function(angle, generation)
