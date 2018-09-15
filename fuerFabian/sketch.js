@@ -12,8 +12,8 @@ var tree = []; //array of branches.
 
 function setup() 
 {
-  canvasHeight = 500;
-  canvasWidth = 500;
+  canvasHeight = 600;
+  canvasWidth = 600;
   var canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent('logo');
   canvasRadius = min([canvasHeight, canvasWidth])/2;
@@ -42,7 +42,7 @@ function setup()
 
 function draw()
 {
-  background(255);
+  clear();
   translate(canvasWidth/2, canvasHeight); // to the origin!
 
   if (progress < 1)
@@ -53,7 +53,7 @@ function draw()
       tree[i].show();
       console.log("Growing...");
     }
-    progress += 0.01;//0.0025;
+    progress += 0.0025;//0.0025;
   }
   if (progress > 1)
   {
@@ -65,7 +65,7 @@ function draw()
       console.log("Decaying...");
     }
 
-    // noLoop();
+    noLoop();
   }
 
 }
@@ -86,8 +86,10 @@ function Branch(originBranch, length, angle, grownBy, generation)
   this.show = function()
   {
     strokeWeight(this.grownBy*canvasRadius/50*(1-this.generation/maxGenerations)+1);
-    stroke(0, 0, 255);
-    stroke(218,165,32);
+    // stroke(0, 0, 255); // blue
+    // stroke(0, 0, 0);
+    // stroke(218,165,32); // gold
+    stroke(255,20,20); // glowing pinkg
 
     this.updateEnd();
     line(this.originBranch.end.x, this.originBranch.end.y, this.end.x, this.end.y);

@@ -6,46 +6,46 @@
     <script src="../p5.js"></script>
     <script src="../addons/p5.dom.js"></script>
     <script src="../addons/p5.sound.js"></script>
-    <script src="sketch.js"></script>
+    <script src="fuerFabian/sketch.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet">
     <style>
       logo text {
         font-family: 'Sunflower', sans-serif;
         font-size: 48px;
       }
+      body {
+          background: black;
+      }
       .container {
           position: absolute;
-          width: auto;
-          height: auto;
+          width: 600px;
+          /*height: auto;*/
+          height: 970px;
           z-index: 15;
           top: 50%;
           left: 50%;
-          margin: -250px 0 0 -250px;
-          /*background*/: grey;
+          margin: -485px 0 0 -300px;
+          background: Wheat;
+          border-radius: 5px 5px 5px 5px;
       }
       .one {
-          width: auto%;
-          height: auto;
-          /*background: red;*/
-          float: left;
+          width: 600px;
+          height: 600px;
+          /*background: rgb(218,165,32);*/
+          border-radius: 5px 5px 0 0;
       }
       .two {
           margin-left: 0px;
-          height: 150px;
-          /*background: black;*/
-          font-family: 'Sunflower', sans-serif;
-          /*font-size: large;*/
-          letter-spacing: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+          height: 370px;
+          border-radius: 0 0 5px 5px;
+          /*background: rgb(218,165,32);*/
       }
     </style>
   </head>
   <body>
     <div class='container'>
     <div id='logo' class='one'></div>
-    <!-- <div class='two'>critical mass<br> baerchenbyte venture</div> -->
+    <div class='two'><!-- Glückwünsche --></div>
     </div>
   </body>
 </html>
